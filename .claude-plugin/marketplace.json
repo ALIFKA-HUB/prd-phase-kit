@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "prd-phase-kit",
+  "description": "Spec-driven development workflow as Claude Code skills.",
+  "owner": {
+    "name": "ALIFKA-HUB",
+    "url": "https://github.com/ALIFKA-HUB"
+  },
+  "plugins": [
+    {
+      "name": "prd-phase-kit",
+      "description": "PRD -> phased plan -> per-phase execution with testing gate and git/changelog discipline.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "prd-phase-kit",
+  "description": "Spec-driven development workflow: PRD -> phased plan -> per-phase execution with a testing gate and standardized git + changelog discipline.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ALIFKA-HUB",
+    "url": "https://github.com/ALIFKA-HUB"
+  }
+}

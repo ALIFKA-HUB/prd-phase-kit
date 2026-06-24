@@ -1,0 +1,44 @@
+{
+  "name": "prd-phase-kit",
+  "version": "0.1.0",
+  "description": "PRD Phase Kit — spec-driven development workflow (PRD -> phased plan -> per-phase execution) as installable slash-commands for AI coding agents.",
+  "license": "MIT",
+  "author": "ALIFKA-HUB",
+  "homepage": "https://github.com/ALIFKA-HUB/prd-phase-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALIFKA-HUB/prd-phase-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ALIFKA-HUB/prd-phase-kit/issues"
+  },
+  "bin": {
+    "prd-phase-kit": "./bin/install.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "sync": "node scripts/sync.js",
+    "sync:check": "node scripts/sync.js --check",
+    "lint": "node scripts/sync.js --check"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "templates/",
+    "commands/",
+    "plugins/",
+    ".claude-plugin/",
+    "gemini-extension.json",
+    "GEMINI.md",
+    "AGENTS.md",
+    "README.md",
+    "INSTALL.md",
+    "CONTRIBUTING.md",
+    "install.sh",
+    "install.ps1",
+    "LICENSE"
+  ]
+}

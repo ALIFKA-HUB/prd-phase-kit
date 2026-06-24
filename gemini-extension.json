@@ -1,0 +1,6 @@
+{
+  "name": "prd-phase-kit",
+  "version": "0.1.0",
+  "description": "Spec-driven development workflow: /init-prd, /make-plan, /start-task, /finish-task, /status.",
+  "contextFileName": "GEMINI.md"
+}

@@ -1,0 +1,39 @@
+---
+name: finish-task
+description: >
+  Final step per PRD Phase Kit phase. Re-confirms the testing gate, writes a
+  standardized change log to docs/changelog/<feature-slug>/phase-NN.md, then
+  prints git add/commit/push commands and waits for confirmation. Use when the
+  user runs /ppk-finish-task, says "selesaikan phase ini", "log perubahan & push",
+  after a phase has passed its testing gate.
+---
+
+# /ppk-finish-task — Log changes and push
+
+**Trigger:** `/ppk-finish-task` (run after a phase passes its testing gate)
+
+**Goal:** Write a standardized change log, then commit and push.
+
+## Steps
+
+1. **Re-confirm the testing gate.** If the user hasn't confirmed tests pass, STOP
+   and ask. Never commit on red/unknown tests (Global Rule #2).
+2. Collect the diff for the phase (`git status`, `git diff`) and write
+   `docs/changelog/<feature-slug>/phase-<NN>.md` using the template in
+   `templates/changelog.md`. Record phase number, files added/modified/deleted,
+   line ranges, and the reason for each change.
+3. Present the changelog file to the user.
+4. **Print the git commands and WAIT for confirmation** before running them:
+   ```bash
+   git add .
+   git commit -m "<type>(<scope>): <description matching the phase>"
+   git push origin <type>/<issue>-<slug>
+   ```
+5. Confirm completion and point the user to the next phase via `/ppk-start-task`.
+
+## Global rules (always apply)
+
+- Re-confirm the testing gate before committing.
+- Wait for confirmation before running git commands.
+- Respond in the user's language.
+- See `skills/_shared/conventions.md` for the full rule set.
