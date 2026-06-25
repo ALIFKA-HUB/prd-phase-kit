@@ -8,3 +8,6 @@ coverage/
 *.tgz
 skills.md
 full-chat-log.md
+0*.md
+scaffold.js
+implementation_plan.md
