@@ -8,10 +8,10 @@ const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { loadSkills, parseSkill } = require('../bin/lib/skills.js');
 
-test('loadSkills discovers all five workflow commands', () => {
+test('loadSkills discovers all six workflow commands', () => {
   const skills = loadSkills(ROOT);
   const names = skills.map((s) => s.name).sort();
-  assert.deepEqual(names, ['finish-task', 'init-prd', 'make-plan', 'start-task', 'status']);
+  assert.deepEqual(names, ['finish-task', 'init-prd', 'make-plan', 'reset', 'start-task', 'status']);
 });
 
 test('every skill has a non-empty description and body', () => {
