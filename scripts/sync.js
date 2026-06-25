@@ -33,6 +33,7 @@ function listSkills() {
 
 /** Split a SKILL.md into { frontmatter, body }. */
 function parseSkill(raw) {
+  raw = raw.replace(/\r\n/g, '\n');
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!m) return { frontmatter: {}, body: raw.trim() };
   const fm = {};

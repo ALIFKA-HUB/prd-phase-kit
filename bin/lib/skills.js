@@ -5,6 +5,7 @@ const path = require('path');
 
 /** Parse a SKILL.md into { frontmatter, body }. Minimal YAML (key: value, folded >). */
 function parseSkill(raw) {
+  raw = raw.replace(/\r\n/g, '\n');
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!m) return { frontmatter: {}, body: raw.trim() };
   const fm = {};
