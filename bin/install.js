@@ -91,16 +91,26 @@ function main() {
       const dest = path.join(dir, filename);
       if (opts.uninstall) {
         if (fs.existsSync(dest)) {
-          if (!opts.dryRun) fs.unlinkSync(dest);
-          console.log(`  removed  /${skill.command}  (${filename})`);
-          count++;
+          try {
+            if (!opts.dryRun) fs.unlinkSync(dest);
+            console.log(`  removed  /${skill.command}  (${filename})`);
+            count++;
+          } catch (err) {
+            const hint = err.code === 'EACCES' ? ' — try running as admin' : '';
+            console.error(`  FAILED to remove ${filename}: ${err.message}${hint}`);
+          }
         }
         continue;
       }
       const { content } = p.file(skill);
-      if (!opts.dryRun) fs.writeFileSync(dest, content);
-      console.log(`  ${opts.dryRun ? 'would write' : 'installed'}  /${skill.command}  (${filename})`);
-      count++;
+      try {
+        if (!opts.dryRun) fs.writeFileSync(dest, content);
+        console.log(`  ${opts.dryRun ? 'would write' : 'installed'}  /${skill.command}  (${filename})`);
+        count++;
+      } catch (err) {
+        const hint = err.code === 'EACCES' ? ' — try running as admin' : '';
+        console.error(`  FAILED to write ${filename}: ${err.message}${hint}`);
+      }
     }
   }
 
