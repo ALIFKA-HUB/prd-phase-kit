@@ -28,3 +28,10 @@ test('parseSkill reads folded description frontmatter', () => {
   assert.equal(frontmatter.description, 'line one line two');
   assert.equal(body, 'body here');
 });
+
+test('parseSkill normalizes CRLF line endings', () => {
+  const { frontmatter, body } = parseSkill('---\r\nname: crlf\r\ndescription: test\r\n---\r\nbody here\r\nand here');
+  assert.equal(frontmatter.name, 'crlf');
+  assert.equal(frontmatter.description, 'test');
+  assert.equal(body, 'body here\nand here');
+});
