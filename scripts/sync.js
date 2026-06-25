@@ -59,6 +59,7 @@ planned.push({
 });
 
 let stale = 0;
+let errors = 0;
 for (const { file, content } of planned) {
   const current = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
   if (current === content) continue;
@@ -66,9 +67,15 @@ for (const { file, content } of planned) {
   if (CHECK) {
     console.error(`out of date: ${path.relative(ROOT, file)}`);
   } else {
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, content);
-    console.log(`wrote ${path.relative(ROOT, file)}`);
+    try {
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, content);
+      console.log(`wrote ${path.relative(ROOT, file)}`);
+    } catch (err) {
+      errors++;
+      const hint = err.code === 'EACCES' ? ' — try running as admin' : '';
+      console.error(`[ppk] Failed to write ${path.relative(ROOT, file)}: ${err.message}${hint}`);
+    }
   }
 }
 
@@ -77,5 +84,9 @@ if (CHECK && stale > 0) {
   process.exit(1);
 }
 if (!CHECK) {
+  if (errors > 0) {
+    console.error(`\n${errors} file(s) failed to write.`);
+    process.exit(1);
+  }
   console.log(stale === 0 ? 'already in sync' : `synced ${stale} file(s)`);
 }
