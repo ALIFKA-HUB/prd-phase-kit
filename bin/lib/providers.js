@@ -100,4 +100,4 @@ function getProvider(id) {
   return PROVIDERS.find((p) => p.id === id);
 }
 
-module.exports = { PROVIDERS, getProvider, context, markdownCommand, tomlCommand, shortDesc };
+module.exports = { PROVIDERS, getProvider, context, markdownCommand, tomlCommand, shortDesc, tomlLiteral };
