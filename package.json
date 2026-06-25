@@ -2,7 +2,20 @@
   "name": "prd-phase-kit",
   "version": "0.1.0",
   "description": "PRD Phase Kit — spec-driven development workflow (PRD -> phased plan -> per-phase execution) as installable slash-commands for AI coding agents.",
+  "type": "commonjs",
   "license": "MIT",
+  "keywords": [
+    "prd",
+    "spec-driven",
+    "ai-agent",
+    "workflow",
+    "slash-commands",
+    "gemini",
+    "claude",
+    "cursor",
+    "windsurf",
+    "codex"
+  ],
   "author": "ALIFKA-HUB",
   "homepage": "https://github.com/ALIFKA-HUB/prd-phase-kit",
   "repository": {
