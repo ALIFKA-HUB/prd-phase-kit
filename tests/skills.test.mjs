@@ -35,3 +35,28 @@ test('parseSkill normalizes CRLF line endings', () => {
   assert.equal(frontmatter.description, 'test');
   assert.equal(body, 'body here\nand here');
 });
+
+test('every skill command field is ppk-<name>', () => {
+  for (const skill of loadSkills(ROOT)) {
+    assert.equal(skill.command, `ppk-${skill.name}`, `${skill.name}: unexpected command format`);
+  }
+});
+
+test('every skill description has no double spaces', () => {
+  for (const skill of loadSkills(ROOT)) {
+    assert.ok(
+      !skill.description.includes('  '),
+      `${skill.name}: description contains double spaces: "${skill.description}"`
+    );
+  }
+});
+
+test('every skill description has no leading or trailing whitespace', () => {
+  for (const skill of loadSkills(ROOT)) {
+    assert.equal(
+      skill.description,
+      skill.description.trim(),
+      `${skill.name}: description has leading/trailing whitespace`
+    );
+  }
+});
