@@ -114,3 +114,12 @@ Use `--all` to install regardless, then restart your agent to pick up the comman
 
 ### Commands not showing up
 Restart your agent (or reload its command palette) after install. Some agents need a full restart to discover new commands.
+
+---
+
+## More
+
+- [README.md](README.md) — overview, commands, quick start
+- [CONTRIBUTING.md](CONTRIBUTING.md) — dev workflow, repo anatomy, adding skills
+- [CHANGELOG.md](CHANGELOG.md) — release history
+- [LICENSE](LICENSE) — MIT
