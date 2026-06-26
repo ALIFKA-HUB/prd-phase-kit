@@ -30,20 +30,21 @@ description: >
    ```
 3. After confirmation, set the phase `status: in-progress` in `plan.md`.
 4. Implement the phase's tasks. Tick each task checkbox (`- [x]`) as it completes.
-5. **Testing gate (mandatory).** "Tested" means more than unit tests — run the
+5. **Peer Review (mandatory before testing):** After the code is written, STOP and ask the user: *"Kode sudah ditulis. Apakah Anda ingin saya melakukan peer review (bertindak sebagai Senior Engineer untuk mengecek bug, over-engineering, atau celah keamanan) sebelum lanjut ke pengujian?"* If the user confirms, critique the code and apply any necessary fixes.
+6. **Testing gate (mandatory).** "Tested" means more than unit tests — run the
    project's full quality bar where applicable: **tests + lint + format check +
    typecheck + build**. Either run the checks yourself and report results,
    provide the exact commands for the user to run, or ask: *"Has the code been
    tested (tests/lint/typecheck/build) and is it running cleanly?"* The phase's
    `Check (auto)` command from `plan.md` must exit green. Do NOT proceed to
    `/ppk-finish-task` until everything is green.
-6. **Spec drift check.** If the phase revealed the PRD/plan was wrong or
+7. **Spec drift check.** If the phase revealed the PRD/plan was wrong or
    incomplete, STOP, update `PRD.md`/`plan.md` with the user's confirmation, then
    continue (Global Rule #7).
-7. When the phase's tasks + checks pass, update `plan.md`:
+8. When the phase's tasks + checks pass, update `plan.md`:
    - set the phase `status: done`
    - check the phase box in **Progress Overview** (`- [x] Phase N`)
-8. Tell the user the phase is complete and prompt them to run `/ppk-finish-task`.
+9. Tell the user the phase is complete and prompt them to run `/ppk-finish-task`.
 
 > `/ppk-start-task` does NOT commit or push. It only sets up the branch, writes code,
 > runs tests, and updates the plan's progress.

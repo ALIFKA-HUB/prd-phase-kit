@@ -16,11 +16,13 @@ prompt = '''
    `templates/changelog.md`. Record phase number, files added/modified/deleted,
    line ranges, and the reason for each change.
 3. Present the changelog file to the user.
-4. **Print the git commands and WAIT for confirmation** before running them:
+4. **Print the git commands and WAIT for confirmation** before running them. Also, ask the user if they want to create a Pull Request/Merge Request and include the command for their preferred CLI (e.g. `gh` or `glab`) if they agree:
    ```bash
    git add .
    git commit -m "<type>(<scope>): <description matching the phase>"
    git push origin <type>/<issue>-<slug>
+   # If the user confirmed PR creation, also print:
+   gh pr create --title "<type>(<scope>): <description>" --body-file docs/changelog/<feature-slug>/phase-<NN>.md
    ```
 5. Confirm completion and point the user to the next phase via `/ppk-start-task`.
 
