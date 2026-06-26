@@ -9,7 +9,13 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
 
----
+### Added
+
+- **`docs/architecture-diagram.md`** — 4 Mermaid diagrams visualizing the full workflow, component map, and sequence flows for `/ppk-init-prd` and `/ppk-start-task` → `/ppk-finish-task`
+- **`docs/trust-foundation.md`** — Long-form "Why Trust This Workflow?" copy: spec-driven, reproducible, auditable, tiny phases, AI can't skip rules
+- **`README.md` revamp** — CI/tests/PRs badges, ASCII flow diagram, enhanced commands table, Trust section with objection-handler table
+- **`CONTRIBUTING.md` deep dive** — Repository anatomy (annotated ASCII tree), Iterative Mindset of Prompt Engineering section
+- Cross-document navigation: footer "More" links added to INSTALL.md and CONTRIBUTING.md
 
 ## [0.1.0] — 2026-06-25
 
