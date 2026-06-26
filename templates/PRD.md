@@ -21,22 +21,25 @@ Who uses this and in what context?
 ## 5. User Stories
 - As a <role>, I want <action> so that <benefit>.
 
-## 6. Functional Requirements
+## 6. Acceptance Criteria / Test Cases
+- [ ] **Given** <condition>, **When** <action>, **Then** <expected result>.
+
+## 7. Functional Requirements
 - FR1: ...
 - FR2: ...
 
-## 7. Non-Functional Requirements
+## 8. Non-Functional Requirements
 Performance, security, accessibility, i18n, etc.
 
-## 8. Tech Stack & Decisions
+## 9. Tech Stack & Decisions
 (Confirmed with user — do not invent.)
 - Language / framework:
 - Database:
 - Key libraries:
 - Deployment target:
 
-## 9. Open Questions / Assumptions
+## 10. Open Questions / Assumptions
 - Q1 (resolved/open):
 
-## 10. Success Metrics
+## 11. Success Metrics
 How do we know it works?
